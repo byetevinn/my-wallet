@@ -1,12 +1,10 @@
-import React from 'react';
-
 import Aside from '../Aside';
 import Content from '../Content';
-import MainHeader from '../Layout';
+import MainHeader from '../MainHeader';
 
 import { Container } from './styles';
 
-const Layout: React.FC = () => {
+const Layout = () => {
   return (
     <Container>
       <MainHeader />
