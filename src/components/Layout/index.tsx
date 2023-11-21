@@ -1,15 +1,17 @@
+import { ReactNode } from 'react';
+
 import Aside from '../Aside';
 import Content from '../Content';
 import MainHeader from '../MainHeader';
 
 import { Container } from './styles';
 
-const Layout = () => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Container>
       <MainHeader />
       <Aside />
-      <Content />
+      <Content>{children}</Content>
     </Container>
   );
 };

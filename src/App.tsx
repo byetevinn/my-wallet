@@ -3,12 +3,16 @@ import Layout from './components/Layout';
 import GlobalStyles from './styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import dark from './styles/themes/dark';
+import Dashboard from './pages/Dashboard';
+import List from './pages/List';
 
 const App = () => {
   return (
     <ThemeProvider theme={dark}>
       <GlobalStyles />
-      <Layout />
+      <Layout>
+        <List />
+      </Layout>
     </ThemeProvider>
   );
 };

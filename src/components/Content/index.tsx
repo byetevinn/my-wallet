@@ -1,10 +1,8 @@
+import { ReactNode } from 'react';
+
 import { Container } from './styles';
 
-const Content = () => {
-  return (
-    <Container>
-      <h1>Content</h1>
-    </Container>
-  );
+const Content = ({ children }: { children: ReactNode }) => {
+  return <Container>{children}</Container>;
 };
 export default Content;
