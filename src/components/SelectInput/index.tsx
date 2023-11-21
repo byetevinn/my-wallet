@@ -5,14 +5,18 @@ interface ISelectInput {
     value: string | number;
     label: string | number;
   }[];
+  onChange(event: React.ChangeEvent<HTMLSelectElement>): void | undefined;
+  defaultValue?: string | number;
 }
 
-const SelectInput = ({ options }: ISelectInput) => {
+const SelectInput = ({ options, onChange, defaultValue }: ISelectInput) => {
   return (
     <Container>
-      <select>
+      <select onChange={onChange} defaultValue={defaultValue}>
         {options.map(({ value, label }) => (
-          <option value={value}> {label} </option>
+          <option key={value} value={value}>
+            {label}
+          </option>
         ))}
       </select>
     </Container>

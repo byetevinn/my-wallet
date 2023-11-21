@@ -1,18 +1,14 @@
-import Layout from './components/Layout';
+import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from './styles/GlobalStyles';
-import { ThemeProvider } from 'styled-components';
 import dark from './styles/themes/dark';
-import Dashboard from './pages/Dashboard';
-import List from './pages/List';
+import Routes from './routes';
 
 const App = () => {
   return (
     <ThemeProvider theme={dark}>
       <GlobalStyles />
-      <Layout>
-        <List />
-      </Layout>
+      <Routes />
     </ThemeProvider>
   );
 };
