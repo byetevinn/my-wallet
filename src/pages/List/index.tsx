@@ -9,8 +9,8 @@ import SelectInput from '../../components/SelectInput';
 import formatCurrency from '../../utils/formatCurrency';
 import formatDate from '../../utils/formatDate';
 
-import gains from '../../respositories/gains';
-import expenses from '../../respositories/expenses';
+import gains from '../../repositories/gains';
+import expenses from '../../repositories/expenses';
 import lisOfMonths from '../../utils/months';
 
 import { Container, Content, Filters } from './styles';
@@ -39,7 +39,7 @@ const List = () => {
 
   const { title, lineColor, list } = useMemo(() => {
     return movimentType === 'entry-balance'
-      ? { title: 'Entradas', lineColor: '#F7931B', list: gains }
+      ? { title: 'Entradas', lineColor: '#4E41F0', list: gains }
       : { title: 'Saídas', lineColor: '#E44C4E', list: expenses };
   }, [movimentType]);
 
@@ -126,12 +126,12 @@ const List = () => {
           options={months}
           onChange={(e) => setMonthSelected(Number(e.target.value))}
           defaultValue={monthSelected}
-        ></SelectInput>
+        />
         <SelectInput
           options={years}
           onChange={(e) => setYearSelected(Number(e.target.value))}
           defaultValue={yearSelected}
-        ></SelectInput>
+        />
       </ContentHeader>
 
       <Filters>
