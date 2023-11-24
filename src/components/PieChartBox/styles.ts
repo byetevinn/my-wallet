@@ -28,8 +28,6 @@ export const SideLeft = styled.aside`
 export const LegendContainer = styled.ul`
   height: 175px;
 
-  list-style: none;
-
   overflow-y: scroll;
 
   padding-right: 15px;

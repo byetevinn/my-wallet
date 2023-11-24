@@ -5,6 +5,7 @@ import SelectInput from '../../components/SelectInput';
 import WalletBox from '../../components/WalletBox';
 import MessageBox from '../../components/MessageBox';
 import PieChartBox from '../../components/PieChartBox';
+import HistoryBox from '../../components/HistoryBox';
 
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
@@ -20,7 +21,9 @@ const Dashboard = () => {
   const [monthSelected, setMonthSelected] = useState<number>(
     new Date().getMonth() + 1
   );
-  const [yearSelected, setYearSelected] = useState<number>();
+  const [yearSelected, setYearSelected] = useState<number>(
+    new Date().getFullYear()
+  );
 
   const months = useMemo(() => {
     return lisOfMonths.map((month, index) => {
@@ -42,8 +45,6 @@ const Dashboard = () => {
         uniqueYears.push(year);
       }
     });
-
-    setYearSelected(Math.max(...uniqueYears));
 
     return uniqueYears.map((year) => {
       return {
@@ -147,6 +148,63 @@ const Dashboard = () => {
     return data;
   }, [totalGains, totalExpenses]);
 
+  const historyData = useMemo(() => {
+    return lisOfMonths
+      .map((_, month) => {
+        let amountEntry = 0;
+
+        gains.forEach(({ date, amount }) => {
+          const newDate = new Date(date);
+          const gainMonth = newDate.getMonth();
+          const gainYear = newDate.getFullYear();
+
+          if (gainMonth === month && gainYear === yearSelected) {
+            try {
+              amountEntry += Number(amount);
+            } catch {
+              throw new Error(
+                'amountEntry is invalid. amountEntry must be valid number.'
+              );
+            }
+          }
+        });
+
+        let amountOutput = 0;
+
+        expenses.forEach(({ date, amount }) => {
+          const newDate = new Date(date);
+          const expenseYear = newDate.getFullYear();
+          const expenseMonth = newDate.getMonth();
+
+          if (expenseMonth === month && expenseYear === yearSelected) {
+            try {
+              amountOutput += Number(amount);
+            } catch {
+              throw new Error(
+                'amountOutput is invalid. amountOutput must be valid number.'
+              );
+            }
+          }
+        });
+
+        return {
+          monthNumber: month,
+          month: lisOfMonths[month].substring(0, 3),
+          amountEntry,
+          amountOutput,
+        };
+      })
+      .filter(({ monthNumber }) => {
+        const currentMonth = new Date().getMonth();
+        const currentYear = new Date().getFullYear();
+
+        return (
+          (yearSelected === currentYear && monthNumber <= currentMonth) ||
+          yearSelected < currentYear
+        );
+      });
+  }, [yearSelected]);
+
   return (
     <Container>
       <ContentHeader title="Dashboard" linecolor="#F7931B">
@@ -193,6 +251,12 @@ const Dashboard = () => {
         />
 
         <PieChartBox data={relationExpensesVersusGains} />
+
+        <HistoryBox
+          data={historyData}
+          lineColorAmountEntry="#F7931B"
+          lineColorAmountOutput="#E44C4E"
+        />
       </Content>
     </Container>
   );
