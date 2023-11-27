@@ -9,18 +9,16 @@ interface ISelectInput {
   defaultValue?: string | number;
 }
 
-const SelectInput = ({ options, onChange, defaultValue }: ISelectInput) => {
-  return (
-    <Container>
-      <select onChange={onChange} defaultValue={defaultValue}>
-        {options.map(({ value, label }) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
-      </select>
-    </Container>
-  );
-};
+const SelectInput = ({ options, onChange, defaultValue }: ISelectInput) => (
+  <Container>
+    <select onChange={onChange} defaultValue={defaultValue}>
+      {options.map(({ value, label }) => (
+        <option key={value} value={value}>
+          {label}
+        </option>
+      ))}
+    </select>
+  </Container>
+);
 
 export default SelectInput;

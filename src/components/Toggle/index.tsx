@@ -1,20 +1,23 @@
 import { Container, ToggleLabel, ToggleSelctor } from './styles';
 
-const Toggle = () => {
-  return (
-    <Container>
-      <ToggleLabel>Light</ToggleLabel>
-      <ToggleSelctor
-        checked
-        onChange={() => {
-          console.log('Mudou');
-        }}
-        uncheckedIcon={false}
-        checkedIcon={false}
-      />
-      <ToggleLabel>Dark</ToggleLabel>
-    </Container>
-  );
-};
+interface IToggle {
+  labelLeft: string;
+  labelRight: string;
+  checked: boolean;
+  onChange(): void;
+}
+
+const Toggle = ({ labelLeft, labelRight, checked, onChange }: IToggle) => (
+  <Container>
+    <ToggleLabel> {labelLeft} </ToggleLabel>
+    <ToggleSelctor
+      checked={checked}
+      uncheckedIcon={false}
+      checkedIcon={false}
+      onChange={onChange}
+    />
+    <ToggleLabel> {labelRight} </ToggleLabel>
+  </Container>
+);
 
 export default Toggle;
