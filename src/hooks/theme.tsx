@@ -29,13 +29,23 @@ interface ITheme {
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
 const ThemeProvider = ({ children }: { children: any }) => {
-  const [theme, setTheme] = useState<ITheme>(dark);
+  const [theme, setTheme] = useState<ITheme>(() => {
+    const savedTheme = localStorage.getItem('@minha-carteira:theme');
+
+    if (savedTheme) {
+      return JSON.parse(savedTheme);
+    } else {
+      return dark;
+    }
+  });
 
   const toggleTheme = () => {
     if (theme.title === 'dark') {
       setTheme(light);
+      localStorage.setItem('@minha-carteira:theme', JSON.stringify(light));
     } else {
       setTheme(dark);
+      localStorage.setItem('@minha-carteira:theme', JSON.stringify(dark));
     }
   };
 
