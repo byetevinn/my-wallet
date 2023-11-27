@@ -5,6 +5,10 @@ import {
   MdExitToApp,
 } from 'react-icons/md';
 
+import { useAuth } from '../../hooks/auth';
+
+import logoImg from '../../assets/logo.svg';
+
 import {
   Container,
   Header,
@@ -12,31 +16,35 @@ import {
   Title,
   MenuContainer,
   MenuItemLink,
+  MenuItemButton,
 } from './styles';
-import logoImg from '../../assets/logo.svg';
 
-const Aside = () => (
-  <Container>
-    <Header>
-      <LogImg src={logoImg} alt="Logo Minha Carteira" />
-      <Title>Minha Carteira</Title>
-    </Header>
+const Aside = () => {
+  const { signOut } = useAuth();
 
-    <MenuContainer>
-      <MenuItemLink href="/dashboard">
-        <MdDashboard /> Dashboard
-      </MenuItemLink>
-      <MenuItemLink href="/list/entry-balance">
-        <MdArrowUpward /> Entradas
-      </MenuItemLink>
-      <MenuItemLink href="/list/exit-balance">
-        <MdArrowDownward /> Saídas
-      </MenuItemLink>
-      <MenuItemLink href="#">
-        <MdExitToApp /> Sair
-      </MenuItemLink>
-    </MenuContainer>
-  </Container>
-);
+  return (
+    <Container>
+      <Header>
+        <LogImg src={logoImg} alt="Logo Minha Carteira" />
+        <Title>Minha Carteira</Title>
+      </Header>
+
+      <MenuContainer>
+        <MenuItemLink href="/">
+          <MdDashboard /> Dashboard
+        </MenuItemLink>
+        <MenuItemLink href="/list/entry-balance">
+          <MdArrowUpward /> Entradas
+        </MenuItemLink>
+        <MenuItemLink href="/list/exit-balance">
+          <MdArrowDownward /> Saídas
+        </MenuItemLink>
+        <MenuItemButton onClick={signOut}>
+          <MdExitToApp /> Sair
+        </MenuItemButton>
+      </MenuContainer>
+    </Container>
+  );
+};
 
 export default Aside;

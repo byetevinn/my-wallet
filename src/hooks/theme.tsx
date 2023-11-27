@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 
 import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
@@ -28,7 +28,7 @@ interface ITheme {
 
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
-const ThemeProvider = ({ children }: { children: any }) => {
+const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<ITheme>(() => {
     const savedTheme = localStorage.getItem('@minha-carteira:theme');
 
