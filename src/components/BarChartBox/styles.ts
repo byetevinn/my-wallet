@@ -16,6 +16,13 @@ export const Container = styled.div`
   margin: 10px 0;
 
   border-radius: 7px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const SideLeft = styled.aside`
@@ -48,6 +55,12 @@ export const LegendContainer = styled.ul`
   &::-webkit-scrollbar-track {
     background-color: ${(props) => props.theme.colors.tertiary};
   }
+
+  @media (max-width: 1200px) {
+    display: flex;
+
+    height: auto;
+  }
 `;
 
 export const Legend = styled.li<ILegend>`
@@ -57,6 +70,8 @@ export const Legend = styled.li<ILegend>`
   font-size: 16px;
 
   margin-bottom: 7px;
+
+  padding-left: 16px;
 
   > div {
     width: 40px;

@@ -11,6 +11,10 @@ export const Container = styled.div`
   width: 100%;
 
   margin-bottom: 25px;
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
 `;
 
 export const TitleContainer = styled.div<ITitleContainer>`
@@ -24,8 +28,26 @@ export const TitleContainer = styled.div<ITitleContainer>`
       border-bottom: 10px solid ${(props) => props.linecolor};
     }
   }
+
+  @media (max-width: 420px) {
+    > h1 {
+      font-size: 22px;
+
+      &::after {
+        border-bottom: 5px solid ${(props) => props.linecolor};
+      }
+    }
+  }
 `;
 
 export const Controllers = styled.div`
   display: flex;
+
+  @media (max-width: 320px) {
+    justify-content: space-around;
+
+    width: 100%;
+
+    margin-top: 20px;
+  }
 `;
