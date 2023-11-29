@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+## Sobre o projeto
+Este projeto foi criado com o objetivo de proporcionar uma solução eficaz para o controle e organização das finanças pessoais, permitindo que os usuários acompanhem com precisão as entradas e saídas de dinheiro ao longo do mês.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Como instalar e rodar a aplicação
 
-In the project directory, you can run:
+1- Clone o repositório em sua máquina
 
-### `npm start`
+2- Instale todas as dependências necessárias usando o comando `yarn` ou `yarn install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3- Por fim use o comando `yarn start` para poder rodar a aplicação em local-host
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+OBS: Não há banco de dados. Os dados são carregados de 2 arquivos que contém arrays simulando os repositórios de dados.
 
-### `npm test`
+## ACESSO
+- E-mail: stevan14padilha@gmail.com
+- Senha: 123
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Layout & Componentes Responsivos
 
-### `npm run build`
+#### Tema Escuro
+<div align="center" >
+  <img src="./docs/assets/my-wallet-preview-dark.png">
+</div>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Tema Claro
+<div align="center" >
+  <img src="./docs/assets/my-wallet-preview-light.png">
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tecnologias usadas no projeto
 
-### `npm run eject`
+#### Linguagens
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- JAVASCRIPT
+- TYPESCRIPT
+- CSS
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Framework
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- REACT
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Bibliotecas
 
-## Learn More
+- REACT-COUNTUP
+- RECHARTS
+- STYLED-COMPONENTS
+- UUID
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deploy do projeto
+
+<a href="https://my-wallet-swart.vercel.app/">Vercel</a>
+
+
+<div align="center">
+  <small>Stevan dos Santos Padilha - 2023</small>
+</div>
